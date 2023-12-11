@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2020",
     "lib": ["es2020"],
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["./types"],
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -34,6 +34,7 @@
       "@utils/*": ["utils/*"]
     }
   },
+  // "files": ["./index.ts", "./types/index.d.ts"],
   "include": ["src//*.ts", "src//*.json", ".env", "index.ts"],
   "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
 }
