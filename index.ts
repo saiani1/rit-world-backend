@@ -1,20 +1,25 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import cookieParser from "cookie-parser";
-import expressSession from "express-session";
 import dotenv from "dotenv";
 import passport from "passport";
 import hpp from "hpp";
 import helmet from "helmet";
+import expressSession from "express-session";
 
 import { sequelize } from "./models";
+import userRouter from "./routes/user";
+import postRouter from "./routes/post";
 
 dotenv.config();
 const app = express();
 const prod: boolean = process.env.NODE_ENV === "production";
 
-app.set("port", prod ? process.env.PORT : 3065);
+app.listen(3065, () => {
+  console.log("이예에에");
+});
+
+// app.set("port", 5000);
 sequelize
   .sync({ force: false })
   .then(() => {
@@ -30,7 +35,7 @@ if (prod) {
   app.use(morgan("combined"));
   app.use(
     cors({
-      origin: "http://localhost:3065",
+      origin: true,
       credentials: true,
     })
   );
@@ -47,7 +52,6 @@ if (prod) {
 app.use("/", express.static("uploads"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   expressSession({
     resave: false,
@@ -63,6 +67,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use("/user", userRouter);
+app.use("/post", postRouter);
 
 app.get("/", (req, res, next) => {
   res.send({ message: "ritworld 백엔드 정상동작!" });

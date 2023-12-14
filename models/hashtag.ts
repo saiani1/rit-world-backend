@@ -26,8 +26,6 @@ Hashtag.init(
   }
 );
 
-export const associate = (db: dbType) => {
-  db.Hashtag.belongsToMany(db.Post);
-};
+export const associate = (db: dbType) => {};
 
 export default Hashtag;
