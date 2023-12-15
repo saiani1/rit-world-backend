@@ -16,7 +16,7 @@ const app = express();
 const prod: boolean = process.env.NODE_ENV === "production";
 
 app.listen(3065, () => {
-  console.log("이예에에");
+  console.log("서버 실행중");
 });
 
 // app.set("port", 5000);
@@ -67,8 +67,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/user", userRouter);
-app.use("/post", postRouter);
+app.use("/api/user", userRouter);
+app.use("/api/post", postRouter);
 
 app.get("/", (req, res, next) => {
   res.send({ message: "ritworld 백엔드 정상동작!" });

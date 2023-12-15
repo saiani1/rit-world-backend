@@ -14,11 +14,12 @@ const router = express.Router();
 //   return res.json(user);
 // });
 
-router.get("/api/user/checkId", async (req, res, next) => {
+router.get("/checkId", async (req, res, next) => {
   try {
+    const userId = req.query.id;
     const findUserId = await User.findOne({
       where: {
-        userId: req.body.userId,
+        userId: userId,
       },
     });
     if (findUserId) {
@@ -30,7 +31,7 @@ router.get("/api/user/checkId", async (req, res, next) => {
   }
 });
 
-router.get("/api/user/checkNickname", async (req, res, next) => {
+router.get("/checkNickname", async (req, res, next) => {
   try {
     const findUserNickname = await User.findOne({
       where: {
@@ -46,7 +47,7 @@ router.get("/api/user/checkNickname", async (req, res, next) => {
   }
 });
 
-router.post("/api/user/submit", async (req, res, next) => {
+router.post("/submit", async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
     const newUser = await User.create({
