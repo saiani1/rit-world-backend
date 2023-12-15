@@ -67,8 +67,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/api/user", userRouter);
-app.use("/api/post", postRouter);
+app.use("/user", userRouter);
+app.use("/post", postRouter);
 
 app.get("/", (req, res, next) => {
   res.send({ message: "ritworld 백엔드 정상동작!" });

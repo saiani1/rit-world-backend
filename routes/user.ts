@@ -16,15 +16,17 @@ const router = express.Router();
 
 router.get("/checkId", async (req, res, next) => {
   try {
-    const userId = req.query.id;
+    const userId = req.query.userId;
     const findUserId = await User.findOne({
       where: {
         userId: userId,
       },
     });
     if (findUserId) {
-      return res.status(403).send("이미 사용 중인 아이디입니다.");
-    } else return res.status(200).send("사용 가능한 아이디입니다.");
+      return res.status(200).send({
+        isDuplicate: true,
+      });
+    } else return res.status(200).send({ isDuplicate: false });
   } catch (error) {
     console.error(error);
     next(error);
@@ -33,21 +35,24 @@ router.get("/checkId", async (req, res, next) => {
 
 router.get("/checkNickname", async (req, res, next) => {
   try {
-    const findUserNickname = await User.findOne({
+    const nickname = req.query.nickname;
+    const findNickname = await User.findOne({
       where: {
-        nickname: req.body.nickname,
+        nickname: nickname,
       },
     });
-    if (findUserNickname) {
-      return res.status(403).send("이미 사용 중인 닉네임입니다.");
-    } else return res.status(200).send("사용 가능한 닉네임입니다.");
+    if (findNickname) {
+      return res.status(200).send({
+        isDuplicate: true,
+      });
+    } else return res.status(200).send({ isDuplicate: false });
   } catch (error) {
     console.error(error);
     next(error);
   }
 });
 
-router.post("/submit", async (req, res, next) => {
+router.post("/signUp", async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
     const newUser = await User.create({
