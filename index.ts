@@ -1,12 +1,14 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import morgan from "morgan";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import expressSession from "express-session";
 import dotenv from "dotenv";
 import passport from "passport";
 import hpp from "hpp";
 import helmet from "helmet";
-import expressSession from "express-session";
 
+import passportConfig from "./passport";
 import { sequelize } from "./models";
 import userRouter from "./routes/user";
 import postRouter from "./routes/post";
@@ -15,11 +17,8 @@ dotenv.config();
 const app = express();
 const prod: boolean = process.env.NODE_ENV === "production";
 
-app.listen(3065, () => {
-  console.log("서버 실행중");
-});
-
-// app.set("port", 5000);
+app.set("port", prod ? process.env.PORT : 3065);
+passportConfig();
 sequelize
   .sync({ force: false })
   .then(() => {
@@ -72,4 +71,13 @@ app.use("/post", postRouter);
 
 app.get("/", (req, res, next) => {
   res.send({ message: "ritworld 백엔드 정상동작!" });
+});
+
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error(err);
+  res.status(500).send("서버 에러 발생! 서버 콘솔을 확인하세요!");
+});
+
+app.listen(app.get("port"), () => {
+  console.log(`server is running on ${app.get("port")}`);
 });

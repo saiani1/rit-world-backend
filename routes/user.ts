@@ -2,17 +2,11 @@ import express from "express";
 import bcrypt from "bcrypt";
 import passport from "passport";
 
-// import { isLoggedIn, isNotLoggedIn } from "./middleware";
+import { isLoggedIn, isNotLoggedIn } from "./middleware";
 import User from "../models/user";
 import Post from "../models/post";
 
 const router = express.Router();
-
-// router.get("/", isLoggedIn, (req: Express.Request, res) => {
-//   const user = req.user;
-//   delete user.password;
-//   return res.json(user);
-// });
 
 router.get("/checkId", async (req, res, next) => {
   try {
@@ -67,44 +61,44 @@ router.post("/signUp", async (req, res, next) => {
   }
 });
 
-// router.post("/login", isNotLoggedIn, (req, res, next) => {
-//   passport.authenticate(
-//     "local",
-//     (err: Error, user: User, info: { message: string }) => {
-//       if (err) {
-//         console.error(err);
-//         return next(err);
-//       }
-//       if (info) {
-//         return res.status(401).send(info.message);
-//       }
-//       return req.login(user, async (loginErr: Error) => {
-//         try {
-//           if (loginErr) {
-//             return next(loginErr);
-//           }
-//           const fullUser = await User.findOne({
-//             where: { id: user.id },
-//             include: [
-//               {
-//                 model: Post,
-//                 as: "Posts",
-//                 attributes: ["id"],
-//               },
-//             ],
-//             attributes: {
-//               exclude: ["password"],
-//             },
-//           });
-//           return res.json(fullUser);
-//         } catch (e) {
-//           console.error(e);
-//           return next(e);
-//         }
-//       });
-//     }
-//   )(req, res, next);
-// });
+router.post("/signIn", isNotLoggedIn, (req, res, next) => {
+  passport.authenticate(
+    "local",
+    (err: Error, user: User, info: { message: string }) => {
+      if (err) {
+        console.error(err);
+        return next(err);
+      }
+      if (info) {
+        return res.status(401).send(info.message);
+      }
+      return req.login(user, async (loginErr: Error) => {
+        try {
+          if (loginErr) {
+            return next(loginErr);
+          }
+          const fullUser = await User.findOne({
+            where: { id: user.id },
+            include: [
+              {
+                model: Post,
+                as: "Posts",
+                attributes: ["id"],
+              },
+            ],
+            attributes: {
+              exclude: ["password"],
+            },
+          });
+          return res.json(fullUser);
+        } catch (e) {
+          console.error(e);
+          return next(e);
+        }
+      });
+    }
+  )(req, res, next);
+});
 
 // router.post("/logout", isLoggedIn, (req, res) => {
 //   req.logout();

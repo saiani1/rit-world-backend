@@ -1,5 +1,6 @@
 import passport from "passport";
 import User from "../models/user";
+import local from "./local";
 
 export default () => {
   passport.serializeUser((user: User, done) => {
@@ -17,4 +18,5 @@ export default () => {
       return done(err);
     }
   });
+  local();
 };

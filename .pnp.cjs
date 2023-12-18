@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@types/morgan", "npm:1.9.9"],\
           ["@types/node", "npm:20.10.4"],\
           ["@types/passport", "npm:0.4.7"],\
+          ["@types/passport-local", "npm:1.0.38"],\
           ["bcrypt", "npm:5.1.1"],\
           ["cookie-parser", "npm:1.4.6"],\
           ["cors", "npm:2.8.5"],\
@@ -49,6 +50,7 @@ const RAW_RUNTIME_STATE =
           ["mysql2", "npm:3.6.5"],\
           ["nodemon", "npm:3.0.2"],\
           ["passport", "npm:0.7.0"],\
+          ["passport-local", "npm:1.0.0"],\
           ["sequelize", "virtual:96ada7eb0dedf03c69df1f887de38d2e8926b9a19242884e86d07abb691ec3aa027cfe0af982528d424c986a44b510edb3cb6c908283f36a24d06bfba94e42cd#npm:6.35.1"],\
           ["sequelize-cli", "npm:6.6.2"],\
           ["ts-node", "virtual:96ada7eb0dedf03c69df1f887de38d2e8926b9a19242884e86d07abb691ec3aa027cfe0af982528d424c986a44b510edb3cb6c908283f36a24d06bfba94e42cd#npm:10.9.1"],\
@@ -404,6 +406,37 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/passport", "npm:0.4.7"],\
           ["@types/express", "npm:4.17.21"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.0.16", {\
+        "packageLocation": "./.yarn/cache/@types-passport-npm-1.0.16-7f245434f2-0ee7b9a461.zip/node_modules/@types/passport/",\
+        "packageDependencies": [\
+          ["@types/passport", "npm:1.0.16"],\
+          ["@types/express", "npm:4.17.21"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/passport-local", [\
+      ["npm:1.0.38", {\
+        "packageLocation": "./.yarn/cache/@types-passport-local-npm-1.0.38-e5beccb1f8-d333956699.zip/node_modules/@types/passport-local/",\
+        "packageDependencies": [\
+          ["@types/passport-local", "npm:1.0.38"],\
+          ["@types/express", "npm:4.17.21"],\
+          ["@types/passport", "npm:1.0.16"],\
+          ["@types/passport-strategy", "npm:0.2.38"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/passport-strategy", [\
+      ["npm:0.2.38", {\
+        "packageLocation": "./.yarn/cache/@types-passport-strategy-npm-0.2.38-6460f7e728-b580e16518.zip/node_modules/@types/passport-strategy/",\
+        "packageDependencies": [\
+          ["@types/passport-strategy", "npm:0.2.38"],\
+          ["@types/express", "npm:4.17.21"],\
+          ["@types/passport", "npm:1.0.16"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2568,6 +2601,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["passport-local", [\
+      ["npm:1.0.0", {\
+        "packageLocation": "./.yarn/cache/passport-local-npm-1.0.0-ed89961a0c-86dc08b12f.zip/node_modules/passport-local/",\
+        "packageDependencies": [\
+          ["passport-local", "npm:1.0.0"],\
+          ["passport-strategy", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["passport-strategy", [\
       ["npm:1.0.0", {\
         "packageLocation": "./.yarn/cache/passport-strategy-npm-1.0.0-5648a82a66-5086693f25.zip/node_modules/passport-strategy/",\
@@ -2828,6 +2871,7 @@ const RAW_RUNTIME_STATE =
           ["@types/morgan", "npm:1.9.9"],\
           ["@types/node", "npm:20.10.4"],\
           ["@types/passport", "npm:0.4.7"],\
+          ["@types/passport-local", "npm:1.0.38"],\
           ["bcrypt", "npm:5.1.1"],\
           ["cookie-parser", "npm:1.4.6"],\
           ["cors", "npm:2.8.5"],\
@@ -2840,6 +2884,7 @@ const RAW_RUNTIME_STATE =
           ["mysql2", "npm:3.6.5"],\
           ["nodemon", "npm:3.0.2"],\
           ["passport", "npm:0.7.0"],\
+          ["passport-local", "npm:1.0.0"],\
           ["sequelize", "virtual:96ada7eb0dedf03c69df1f887de38d2e8926b9a19242884e86d07abb691ec3aa027cfe0af982528d424c986a44b510edb3cb6c908283f36a24d06bfba94e42cd#npm:6.35.1"],\
           ["sequelize-cli", "npm:6.6.2"],\
           ["ts-node", "virtual:96ada7eb0dedf03c69df1f887de38d2e8926b9a19242884e86d07abb691ec3aa027cfe0af982528d424c986a44b510edb3cb6c908283f36a24d06bfba94e42cd#npm:10.9.1"],\

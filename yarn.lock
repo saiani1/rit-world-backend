@@ -296,6 +296,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/passport-local@npm:^1":
+  version: 1.0.38
+  resolution: "@types/passport-local@npm:1.0.38"
+  dependencies:
+    "@types/express": "npm:*"
+    "@types/passport": "npm:*"
+    "@types/passport-strategy": "npm:*"
+  checksum: d33395669960d47644b7c094c3ef59bba84e7aa4ee9bc820570027b922c1b7ff9b3f45ac8c11226f6861d2ef795c34b9498ab6f8e29693b51dafb64edd8b9879
+  languageName: node
+  linkType: hard
+
+"@types/passport-strategy@npm:*":
+  version: 0.2.38
+  resolution: "@types/passport-strategy@npm:0.2.38"
+  dependencies:
+    "@types/express": "npm:*"
+    "@types/passport": "npm:*"
+  checksum: b580e165182b137a6e57b6b7511904e6c875a5e372f08679ec54f456dc5c2a72d86f23d9373a52d8286b207fe8240946686f9e3d50b0bc1b4f7316f336a06fa2
+  languageName: node
+  linkType: hard
+
+"@types/passport@npm:*":
+  version: 1.0.16
+  resolution: "@types/passport@npm:1.0.16"
+  dependencies:
+    "@types/express": "npm:*"
+  checksum: 0ee7b9a46192cb60fb4e49038417b0c10b38e50204ed05b5204b3ea9a73e25da34ca8fe05205eaf42fe977610cdbd3a0d5f2228f8661fe0b303bc758fa2a158f
+  languageName: node
+  linkType: hard
+
 "@types/passport@npm:^0":
   version: 0.4.7
   resolution: "@types/passport@npm:0.4.7"
@@ -2200,6 +2230,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"passport-local@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "passport-local@npm:1.0.0"
+  dependencies:
+    passport-strategy: "npm:1.x.x"
+  checksum: 86dc08b12f05f0ce1bb109780ccb0377eff45bbba70aa9c0d65f092b3ef476d344c0443517db2e9f3e5ec0ca849171ab25fb622164e0f69a677173af42b9bba7
+  languageName: node
+  linkType: hard
+
 "passport-strategy@npm:1.x.x":
   version: 1.0.0
   resolution: "passport-strategy@npm:1.0.0"
@@ -2446,6 +2485,7 @@ __metadata:
     "@types/morgan": "npm:^1"
     "@types/node": "npm:latest"
     "@types/passport": "npm:^0"
+    "@types/passport-local": "npm:^1"
     bcrypt: "npm:^5.1.1"
     cookie-parser: "npm:^1.4.6"
     cors: "npm:^2.8.5"
@@ -2458,6 +2498,7 @@ __metadata:
     mysql2: "npm:^3.6.5"
     nodemon: "npm:^3.0.2"
     passport: "npm:^0.7.0"
+    passport-local: "npm:^1.0.0"
     sequelize: "npm:^6.35.1"
     sequelize-cli: "npm:^6.6.2"
     ts-node: "npm:^10.9.1"
